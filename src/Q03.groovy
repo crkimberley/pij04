@@ -7,7 +7,7 @@ String option2 = "Decimal to Binary Conversion"
 println "Decimal/Binary Converter"
 boolean running = true
 while (running) {
-    switch (menu2options(option1, option2)) {
+    switch (menu(option1, option2)) {
         case 0:
             running = false
             break
@@ -55,7 +55,7 @@ String decimal2binary(int decimalNumber) {
     return result
 }
 
-int menu2options(String option1, String option2) {
+int menu(String option1, String option2) {
     while (true) {
         Scanner input = new Scanner(System.in)
         println "<1> " + option1
