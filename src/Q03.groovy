@@ -35,19 +35,12 @@ int power2(int exponent) {
 }
 
 int binary2decimal(String binaryString) {
-    println binaryString
     int decimalNumber = 0
-    println decimalNumber
     int numberOfBinaryDigits = binaryString.length()
-    println numberOfBinaryDigits
     for (int i=0; i<numberOfBinaryDigits; i++) {
-        println "i = " + i
         int binaryDigit = Integer.parseInt((binaryString.charAt(i)) as String)
-        println "binaryDigit = " + binaryDigit
         int powerOf2 = numberOfBinaryDigits - i - 1
-        println "powerOf2 = " + powerOf2
         int decimalValueOfBinaryDigit = binaryDigit * power2(powerOf2)
-        println "decimalValueOfBinaryDigit = " + decimalValueOfBinaryDigit
         decimalNumber = decimalNumber + decimalValueOfBinaryDigit
     }
     return decimalNumber
