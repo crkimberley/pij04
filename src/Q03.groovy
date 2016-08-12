@@ -1,25 +1,10 @@
 /**
  * @author crkimberley on 11/08/2016.
  */
-int choice
+Scanner input = new Scanner(System.in)
 boolean running = true
 while (running) {
-    while (true) {
-        Scanner input = new Scanner(System.in)
-        println "<1> Binary to Decimal Conversion"
-        println "<2> Decimal to Binary Conversion"
-        println "<0> To exit"
-        print ">>> "
-        if (input.hasNextInt()) {
-            choice = input.nextInt()
-            if (choice >= 0 && choice <= 2) {
-                break
-            }
-        }
-        println "Invalid option"
-    }
-    Scanner input = new Scanner(System.in)
-    switch (choice) {
+    switch (menu()) {
         case 0:
             running = false
             break
