@@ -2,12 +2,9 @@
  * @author crkimberley on 11/08/2016.
  */
 Scanner input = new Scanner(System.in)
-String option1 = "Binary to Decimal Conversion"
-String option2 = "Decimal to Binary Conversion"
-println "Decimal/Binary Converter"
 boolean running = true
 while (running) {
-    switch (menu(option1, option2)) {
+    switch (menu()) {
         case 0:
             running = false
             break
@@ -55,11 +52,11 @@ String decimal2binary(int decimalNumber) {
     return result
 }
 
-int menu(String option1, String option2) {
+int menu() {
     while (true) {
         Scanner input = new Scanner(System.in)
-        println "<1> " + option1
-        println "<2> " + option2
+        println "<1> Binary to Decimal Conversion"
+        println "<2> Decimal to Binary Conversion"
         println "<0> To exit"
         print ">>> "
         if (input.hasNextInt()) {
