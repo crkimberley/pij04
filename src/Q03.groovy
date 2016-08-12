@@ -3,7 +3,7 @@
  */
 Scanner input = new Scanner(System.in)
 String option1 = "Binary to Decimal Conversion"
-String option2 = "Decimal to Binary Converter"
+String option2 = "Decimal to Binary Conversion"
 println "Decimal/Binary Converter"
 boolean running = true
 while (running) {
