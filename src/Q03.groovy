@@ -1,6 +1,27 @@
 /**
  * @author crkimberley on 11/08/2016.
  */
+Scanner input = new Scanner(System.in)
+String option1 = "Binary to Decimal Conversion"
+String option2 = "Decimal to Binary Converter"
+println "Decimal/Binary Converter"
+boolean running = true
+while (running) {
+    switch (menu2options(option1, option2)) {
+        case 0:
+            running = false
+            break
+        case 1:
+            print "Enter binary number: "
+            println "Converted to decimal: " + binary2decimal(input.next())
+            break
+        case 2:
+            print "Enter decimal number: "
+            println "Converted to binary: " + decimal2binary(input.nextInt())
+            break
+    }
+}
+
 int power(int base, int exponent) {
     int result = 1
     for (int i=0; i<exponent; i++) {
@@ -14,10 +35,22 @@ int power2(int exponent) {
 }
 
 int binary2decimal(String binaryString) {
+    println binaryString
     int decimalNumber = 0
-    for (int i=0; i<binaryString.length(); i++) {
-        decimalNumber = decimalNumber + Integer.parseInt(binaryString.charAt(i)) * power2(binaryString.length() - i - 1)
+    println decimalNumber
+    int numberOfBinaryDigits = binaryString.length()
+    println numberOfBinaryDigits
+    for (int i=0; i<numberOfBinaryDigits; i++) {
+        println "i = " + i
+        int binaryDigit = Integer.parseInt((binaryString.charAt(i)) as String)
+        println "binaryDigit = " + binaryDigit
+        int powerOf2 = numberOfBinaryDigits - i - 1
+        println "powerOf2 = " + powerOf2
+        int decimalValueOfBinaryDigit = binaryDigit * power2(powerOf2)
+        println "decimalValueOfBinaryDigit = " + decimalValueOfBinaryDigit
+        decimalNumber = decimalNumber + decimalValueOfBinaryDigit
     }
+    return decimalNumber
 }
 
 String decimal2binary(int decimalNumber) {
@@ -27,4 +60,20 @@ String decimal2binary(int decimalNumber) {
         decimalNumber = decimalNumber / 2
     }
     return result
+}
+
+int menu2options(String option1, String option2) {
+    while (true) {
+        Scanner input = new Scanner(System.in)
+        println "<1> " + option1
+        println "<2> " + option2
+        println "<0> To exit"
+        print ">>> "
+        if (input.hasNextInt()) {
+            int choice = input.nextInt()
+            if (choice >= 0 && choice <= 2)
+            return choice
+        }
+        println "Invalid option"
+     }
 }
