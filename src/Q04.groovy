@@ -4,12 +4,17 @@ import static java.lang.Math.pow
  * @author crkimberley on 13/08/2016.
  */
 Scanner input = new Scanner(System.in)
-print "Enter number - hex or decimal - for conversion. Start hex numbers with 0x: "
-String numberString = input.next()
-if (numberString.length() > 2 && numberString.substring(0, 2) == "0x") {
-    println "Converted to decimal = " + hex2decimal(numberString.substring(2))
-} else {
-    println "Converted to hex = " + decimal2hex(Integer.parseInt(numberString))
+while (true) {
+    print "Enter number - hex or decimal - for conversion. Start hex numbers with 0x. (q to quit): "
+    String numberString = input.next()
+    if (numberString == "q") {
+        break
+    }
+    if (numberString.length() > 2 && numberString.substring(0, 2) == "0x") {
+        println "Converted to decimal = " + hex2decimal(numberString.substring(2))
+    } else {
+        println "Converted to hex = " + decimal2hex(Integer.parseInt(numberString))
+    }
 }
 
 int hex2decimal(String hexString) {
@@ -43,6 +48,9 @@ int hexDigit2decimal(String hexDigitString) {
 }
 
 String decimal2hex(int decimalNumber) {
+    if (decimalNumber == 0) {
+        return "0"
+    }
     String hexString = ""
     int decimalRemainder = 0
     while (decimalNumber != 0) {
